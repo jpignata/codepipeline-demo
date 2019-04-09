@@ -10,6 +10,7 @@ const app = express();
 app.get('/', async (req, res) => {
   const response = await fetch(`${endpoint}?api_key=${key}&rating=g&limit=25`);
   const json = await response.json();
+  //const index = Math.floor(Math.random() * (json.data.length + 1));
   const url = json.data[0].images.original.url;
 
   res.end(`<html><img height="100%" width="100%" src="${url}"></html>`);
